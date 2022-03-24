@@ -43,19 +43,19 @@ fileList2 <-
 # For data.table, we use rbindlist() for row binding instead of do.call(rbind, ...) and fread() for reading. This is much faster than readr
 
 # EPC Certificate Data
-start_time <- Sys.time()
+startTime <- Sys.time()
 epcData <- data.table::rbindlist(lapply(fileList1,
                                         data.table::fread,
                                         showProgress = TRUE)) %>% as_tibble()
-end_time <- Sys.time()
-end_time - start_time
+endTime <- Sys.time()
+endTime - startTime
 
 
 
 # EPC recommendations Data
-start_time <- Sys.time()
+startTime <- Sys.time()
 epcRecom <- data.table::rbindlist(lapply(fileList2,
                                          data.table::fread,
                                          showProgress = TRUE)) %>% as_tibble()
-end_time <- Sys.time()
-end_time - start_time
+endTime <- Sys.time()
+endTime - startTime
