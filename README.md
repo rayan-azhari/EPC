@@ -8,7 +8,7 @@
 
 -   output: data artifacts (e.g., Load data, data wrangling)
 
--   raw_data: raw source data
+-   raw_data: raw source data (it could be gitignored if large data-sets exisit)
 
 -   doc: documentation
 
@@ -22,7 +22,7 @@ The [Energy Performance of Buildings Register](https://find-energy-certificate.d
 
 The open data published on this website has been made available for data analysis to enable independent research into energy efficiency issues such as fuel poverty and climate change. The department has chosen only to publish data from 1 October 2008. The open data should not be relied upon to check if a valid EPC has been produced on sale or rent of a building, if a DEC has been produced for a public authority building over a certain size or if an ACIR has been produced for an air conditioning system.
 
-### Data included in this site
+#### Data included in this site
 
 -   **Domestic EPCs:** to 31 December 2021
 
