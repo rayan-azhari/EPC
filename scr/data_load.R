@@ -11,6 +11,14 @@ source(here::here("scr", "def_functions.R"))
 # load functions by sourcing script files
 source(here::here("scr", "connect_to_sql_db.R"))
 
+# When having issues with memory capacity 
+# if(.Platform$OS.type == "windows") withAutoprint({
+#   memory.size()
+#   memory.size(TRUE)
+#   memory.limit()
+# })
+
+
 
 # Non-Domestic EPC -----------------------------------------------------
 
@@ -48,10 +56,10 @@ rm(nd_epc_recom)
 
 
 # Domestic EPC ------------------------------------------------------------
-
+#### Split p3 into 2 folders. R is running out of memory 
 # Load domestic EPC certificate and recommendations
-n_epc_cert <- load_EPC_certficates("all-domestic-certificates")
-
+n_epc_cert <- load_EPC_certficates("all-domestic-certificates_p3")
+gc()
 
 #Write n_epc_cert to the database
 dbWriteTable(
@@ -59,7 +67,7 @@ dbWriteTable(
   DBI::Id(schema  = "EPC", table   = "n_epc_cert"),
   value = n_epc_cert,
   # dataframe to write to DB
-  append = FALSE,
+  append = TRUE,
   row.names = FALSE
 )
 

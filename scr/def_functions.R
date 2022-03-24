@@ -57,7 +57,7 @@ load_EPC_certficates <- function(EPCfolder ) {
   startTime <- Sys.time()
   EPC_cert_data <- data.table::rbindlist(lapply(EPC_fileList,
                                                 data.table::fread,
-                                                showProgress = TRUE)) %>% as_tibble()
+                                                showProgress = F)) %>% as_tibble()
   endTime <- Sys.time()
   print (endTime - startTime)
   return(EPC_cert_data)
@@ -101,7 +101,7 @@ load_EPC_recommendations <- function(EPCfolder ) {
   startTime <- Sys.time()
   EPC_recom_data <- data.table::rbindlist(lapply(Recom_fileList,
                                                  data.table::fread,
-                                                 showProgress = TRUE)) %>% as_tibble()
+                                                 showProgress = F)) %>% as_tibble()
   endTime <- Sys.time()
   print (endTime - startTime)
   return(EPC_recom_data)
@@ -145,7 +145,7 @@ load_DEC_certficates <- function(DECfolder ) {
   startTime <- Sys.time()
   DEC_cert_data <- data.table::rbindlist(lapply(DEC_fileList,
                                                 data.table::fread,
-                                                showProgress = TRUE)) %>% as_tibble()
+                                                showProgress = F)) %>% as_tibble()
   endTime <- Sys.time()
   print (endTime - startTime)
   return(DEC_cert_data)
@@ -190,7 +190,7 @@ load_DEC_recommendations <- function(DECfolder ) {
   startTime <- Sys.time()
   DEC_recom_data <- data.table::rbindlist(lapply(Recom_fileList,
                                                  data.table::fread,
-                                                 showProgress = TRUE)) %>% as_tibble()
+                                                 showProgress = F)) %>% as_tibble()
   endTime <- Sys.time()
   print (endTime - startTime)
   return(DEC_recom_data)
