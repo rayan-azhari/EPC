@@ -1,0 +1,77 @@
+---
+title: "Report Temp"
+author: "Rayan Azhari"
+date: "19/02/2022"
+output: html_document
+
+# Declare global parameters 
+# to access global parameters, you can use the $ e.g., params$username 
+#params:
+  #username: rayan
+  #password: x 
+  #mix_class: 1
+  #carb2_class: office 
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+```{r pkg-load}
+# Add library load here
+library(tidyverse)
+library(here)
+
+
+
+```
+
+
+```{r fun-load}
+# load functions by sourcing script files
+source(here::here("scr", "def_functions.R"))
+
+
+
+```
+
+
+```{r data-load}
+# source script files to load data from rds
+source(here::here("scr", "data_load"))
+
+# source script files to load data by connecting to SQL Database
+source(here::here("scr", "connect_to_sql_db"))
+
+```
+
+
+
+```{r data-clean}
+# clean data here or source script files to clean data
+source(here::here("scr", "data_clean"))
+
+# apply data quality checks ----
+
+# identify outliers ----
+
+# impute missing values ----
+
+
+
+
+```
+
+## Introduction 
+
+
+## Explonatory analysis 
+
+
+## Graphs and Plots
+
+
+## Tables 
