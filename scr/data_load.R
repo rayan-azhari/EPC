@@ -6,7 +6,10 @@ library(data.table)
 ## Data load
 
 # Path to where the files live
-dataDir <- here::here("row_data", "all-non-domestic-certificates")
+# This assumes the raw data files live in a folder called "raw_data", please change if incorrect 
+rawData <- "raw_data"
+
+dataDir <- here::here(rawData, "all-non-domestic-certificates")
 
 # Name of the file to import - EPC Certificate
 fileName1 <- "certificates.csv"
