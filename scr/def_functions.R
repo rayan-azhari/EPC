@@ -24,16 +24,16 @@ viz_sctter <- function(data, x1, y1) {
 
 
 
-# Define function to load EPC certificate data, input is the name of the main data folder inside the raw_data folder
-load_EPC_certficates <- function(EPCfolder ) {
+# Define function to load certificate data, input is the name of the main data folder inside the raw_data folder
+load_certficates <- function(folder ) {
   
   # Path to where the files live
   # This assumes the raw data files live in a folder called "raw_data", please change if incorrect 
   rawData <- "raw_data"
-  folderDir <- here::here(rawData, EPCfolder)
+  folderDir <- here::here(rawData, folder)
   
   # Name of the file to import - EPC Certificate
-  EPC_certificate <- "certificates.csv"
+  certificate <- "certificates.csv"
   
   # Get a list of the folder names that contains the CSVs to import
   folderList <- list.files(
@@ -48,7 +48,7 @@ load_EPC_certficates <- function(EPCfolder ) {
   EPC_fileList <-
     paste(folderDir,
           folderList,
-          EPC_certificate,
+          certificate,
           sep = "/")
   
   # For data.table, we use rbindlist() for row binding instead of do.call(rbind, ...) and fread() for reading. This is much faster than readr
@@ -68,15 +68,15 @@ load_EPC_certficates <- function(EPCfolder ) {
 
 
 # Define function to load EPC recommendations data, input is the name of the main data folder inside the raw_data folder
-load_EPC_recommendations <- function(EPCfolder ) {
+load_recommendations <- function(folder ) {
   
   # Path to where the files live
   # This assumes the raw data files live in a folder called "raw_data", please change if incorrect 
   rawData <- "raw_data"
-  folderDir <- here::here(rawData, EPCfolder)
+  folderDir <- here::here(rawData, folder)
   
   # Name of the file to import - EPC recommendations
-  EPC_recommendations <- "recommendations.csv"
+  recommendations <- "recommendations.csv"
   
   
   # Get a list of the folder names that contains the CSVs to import
@@ -92,7 +92,7 @@ load_EPC_recommendations <- function(EPCfolder ) {
   Recom_fileList <-
     paste(folderDir,
           folderList,
-          EPC_recommendations,
+          recommendations,
           sep = "/")
   
   # For data.table, we use rbindlist() for row binding instead of do.call(rbind, ...) and fread() for reading. This is much faster than readr
@@ -111,20 +111,20 @@ load_EPC_recommendations <- function(EPCfolder ) {
 
 
 
-# Define function to load DEC certificate data, input is the name of the main data folder inside the raw_data folder
-load_DEC_certficates <- function(DECfolder ) {
-  
+
+folder <- "Development Database (LDD)"
+
+
+
+# Define function to load  recommendations data, input is the name of the main data folder inside the raw_data folder
+load_LDD_fileNames <- function(folder) {
   # Path to where the files live
-  # This assumes the raw data files live in a folder called "raw_data", please change if incorrect 
+  # This assumes the raw data files live in a folder called "raw_data", please change if incorrect
   rawData <- "raw_data"
-  #DECfolder <- "all-display-certificates"
-  folderDir <- here::here(rawData, DECfolder)
+  folderDir <- here::here(rawData, folder)
   
-  # Name of the file to import - DEC Certificate
-  DEC_certificate <- "certificates.csv"
-  
-  # Get a list of the folder names that contains the CSVs to import
-  folderList <- list.files(
+  # Get a list of the file names to import
+  fileNames <- list.files(
     path = folderDir,
     pattern = NULL,
     all.files = FALSE,
@@ -132,67 +132,46 @@ load_DEC_certficates <- function(DECfolder ) {
     recursive = FALSE
   )
   
-  # Create a list of paths to the CSVs to import - DEC Certificate
-  DEC_fileList <-
+  # Create a list of paths to the CSVs to import -  recommendations
+  fileList <-
     paste(folderDir,
-          folderList,
-          DEC_certificate,
+          fileNames,
           sep = "/")
   
-  # For data.table, we use rbindlist() for row binding instead of do.call(rbind, ...) and fread() for reading. This is much faster than readr
-  
-  # DEC Certificate Data
-  startTime <- Sys.time()
-  DEC_cert_data <- data.table::rbindlist(lapply(DEC_fileList,
-                                                data.table::fread,
-                                                showProgress = F)) %>% as_tibble()
-  endTime <- Sys.time()
-  print (endTime - startTime)
-  return(DEC_cert_data)
-  
+  # Create dataframe with all files to load
+  dfNames <- as.data.frame(fileNames) %>%
+    mutate(
+      ext = file_ext(fileNames),
+      fileNames = str_trim(fileNames),
+      fileNames = janitor::make_clean_names(fileNames),
+      filePath = fileList
+    )
+  print("A dataframe of files to load was created")
+    return(dfNames)
+
 }
 
 
 
 
-# Define function to load DEC recommendations data, input is the name of the main data folder inside the raw_data folder
-load_DEC_recommendations <- function(DECfolder ) {
-  
-  # Path to where the files live
-  # This assumes the raw data files live in a folder called "raw_data", please change if incorrect 
-  rawData <- "raw_data"
-  #DECfolder <- "all-display-certificates"
-  folderDir <- here::here(rawData, DECfolder)
-  
-  # Name of the file to import - DEC recommendations
-  DEC_recommendations <- "recommendations.csv"
-  
-  
-  # Get a list of the folder names that contains the CSVs to import
-  folderList <- list.files(
-    path = folderDir,
-    pattern = NULL,
-    all.files = FALSE,
-    full.names = FALSE,
-    recursive = FALSE
-  )
-  
-  # Create a list of paths to the CSVs to import - DEC recommendations
-  Recom_fileList <-
-    paste(folderDir,
-          folderList,
-          DEC_recommendations,
-          sep = "/")
-  
-  # For data.table, we use rbindlist() for row binding instead of do.call(rbind, ...) and fread() for reading. This is much faster than readr
-  
-  # DEC recommendations Data
-  startTime <- Sys.time()
-  DEC_recom_data <- data.table::rbindlist(lapply(Recom_fileList,
-                                                 data.table::fread,
-                                                 showProgress = F)) %>% as_tibble()
-  endTime <- Sys.time()
-  print (endTime - startTime)
-  return(DEC_recom_data)
-  
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
