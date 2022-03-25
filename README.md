@@ -1,4 +1,4 @@
-# Built Environment 
+# Built Environment
 
 This project is licensed under the terms of the [Creative Commons Attribution-NonCommercial (CC-BY-NC)](https://creativecommons.org/licenses/by-nc/4.0/)
 
@@ -16,7 +16,7 @@ This project is licensed under the terms of the [Creative Commons Attribution-No
 
 -   ext: external files (e.g., SQL, images)
 
-## Data-set 
+## Data-set
 
 ### Energy/Display Performance Certificates database
 
@@ -40,13 +40,11 @@ For Energy Performance of Buildings Documentation, please visit this page: (<htt
 
 ### **The National Statistics Postcode Lookup(NSPL)**
 
-Download NSPL (May 2021) from the Open Geography portal of the Office for National Statistics (ONS) (<https://geoportal.statistics.gov.uk/datasets/ons::national-statistics-postcode-lookup-may-2021/about>)
-This file contains the National Statistics Postcode Lookup (NSPL) for the United Kingdom as at May 2021 in Comma Separated Variable (CSV) and ASCII text (TXT) formats.
+Download NSPL (May 2021) from the Open Geography portal of the Office for National Statistics (ONS) (<https://geoportal.statistics.gov.uk/datasets/ons::national-statistics-postcode-lookup-may-2021/about>) This file contains the National Statistics Postcode Lookup (NSPL) for the United Kingdom as at May 2021 in Comma Separated Variable (CSV) and ASCII text (TXT) formats.
 
 ### **The Land Registry Price Paid PPD**
 
-Download the Land Registry PPD from the UK goverment website (<https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads>)
-Contains HM Land Registry data © Crown copyright and database right 2021. This data is licensed under the Open Government Licence v3.0.
+Download the Land Registry PPD from the UK goverment website (<https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads>) Contains HM Land Registry data © Crown copyright and database right 2021. This data is licensed under the Open Government Licence v3.0.
 
 Price Paid Data is released under the [Open Government Licence (OGL)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). You need to make sure you understand the terms of the OGL before using the data.
 
@@ -82,4 +80,22 @@ The following fields comprise the address data included in Price Paid Data:
 
 These include standard and additional price paid data transactions received at HM Land Registry from 1 January 1995 to March 2022 (when the data was downloaded).
 
+### Planning permissions on the London Development Database (LDD)
 
+The London Development Database (LDD) records significant planning permissions in London.
+
+<https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database--ldd->
+
+The data is entered by London's planning authorities, and is checked by the GLA to ensure consistency across London. The LDD records any planning consent that permits one or more of the following:
+
+-   any new build residential units
+
+-   any loss or gain of residential units through change of use or conversion of existing dwellings
+
+-   creation of seven or more new bedrooms for use as either a hotel, a hostel, student housing or for residential care through new build or change of use
+
+-   1,000m2 or more of floor space changing from one use class to another or created through new build or extension for any other use
+
+-   the loss or gain or change of use of open space.
+
+Note that the LDD is being replaced and this data set is no longer being updated. For more information please see the [Planning London Datahub](https://www.london.gov.uk/what-we-do/planning/digital-planning/planning-london-datahub).
