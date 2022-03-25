@@ -5,7 +5,10 @@ library(tidyverse)
 
 # File Names and URLs --------------------------------------------------------------------
 
-
+# Planning permissions on the London Development Database (LDD)
+# https://data.london.gov.uk/dataset/planning-permissions-on-the-london-development-database--ldd- 
+  
+  
 df <-
   as.data.frame(list(file = c("LDD - Housing Approvals unit level archive.zip",
                               "LDD - Housing Completions unit level.xlsx",

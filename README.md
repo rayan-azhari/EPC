@@ -94,7 +94,7 @@ The data is entered by London's planning authorities, and is checked by the GLA 
 
 -   creation of seven or more new bedrooms for use as either a hotel, a hostel, student housing or for residential care through new build or change of use
 
--   1,000m2 or more of floor space changing from one use class to another or created through new build or extension for any other use
+-   1,000m^2 or more of floor space changing from one use class to another or created through new build or extension for any other use
 
 -   the loss or gain or change of use of open space.
 
