@@ -29,27 +29,46 @@ df <-
 
 
 
-# Folder to save downladed files  -------------------------------------------------------------------
-
-# Folder name
-folderDir <- here::here("raw_data", "Development Database (LDD)")
-
-
-
-
-
-
 # Downloads ---------------------------------------------------------------
+
 
 for (row in 1:nrow(df)) {
   
+  # Folder name
+  folderDir <- here::here("raw_data", "Development Database (LDD)")
   url <- df[row, "url"]
   file <- df[row, "file"]
   
-  download.file(url, paste(folderDir, file, sep = "/"), quiet= FALSE, mode="wb")
-  print(paste("Row ", row, "-", file, "download completed!", sep = " "))
+  # if the file is .ZIP is will be unzipped.
+  if (str_detect(file, pattern = ".zip")) {
+    
+    download.file(url,
+                  paste(folderDir, file, sep = "/"),
+                  quiet = FALSE,
+                  mode = "wb")
+    
+    # unzip the file in place 
+    unzip(zipfile = paste(folderDir, file, sep = "/"),
+          exdir = folderDir)
+    
+    print(paste("Row ", row, " was unzipped -", file, "download completed!", sep = " "), )
+    
+  } else {
+    download.file(url,
+                  paste(folderDir, file, sep = "/"),
+                  quiet = FALSE,
+                  mode = "wb")
+    
+    print(paste("Row ", row, "-", file, "download completed!", sep = " "))
+  }
   
 }
+
+
+
+
+
+
 
 
 
