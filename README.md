@@ -1,4 +1,4 @@
-# Built Environment TEST
+# Built Environment
 
 This project is licensed under the terms of the [Creative Commons Attribution-NonCommercial (CC-BY-NC)](https://creativecommons.org/licenses/by-nc/4.0/)
 
