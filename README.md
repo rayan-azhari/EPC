@@ -8,9 +8,9 @@ This project is licensed under the terms of the [Creative Commons Attribution-No
 
 -   scr: scripts (e.g., Define functions, Load data, data wrangling)
 
--   output: data artifacts (e.g., Load data, data wrangling)
+-   output: data artefacts (e.g., Load data, data wrangling)
 
--   raw_data: raw source data (it could be git-ignored if large data-sets exisit)
+-   raw_data: raw source data (it could be git-ignored if large data-sets exist)
 
 -   doc: documentation
 
